@@ -13,7 +13,7 @@ class UserTest {
 
     @BeforeEach
     void setUp() {
-        user = new User("Illia_admin", LocalDate.of(2003, 07, 30), 22854);
+        user = new User("Illia_admin", LocalDate.of(2003, 07, 30), 228541111);
     }
 
     @Test
@@ -27,10 +27,6 @@ class UserTest {
         assertThrows(IllegalArgumentException.class, ()->user.setName(""));
     }
 
-    @Test
-    void setNameInvalidNumbers() {
-        assertThrows(IllegalArgumentException.class, ()->user.setName("374Nd"));
-    }
 
     @Test
     void setBirthday() {
@@ -46,6 +42,12 @@ class UserTest {
 
     @Test
     void setCreditCard() {
-        assertEquals(3254, user.getCreditCard());
+        user.setCreditCard(200541111);
+        assertEquals(200541111, user.getCreditCard());
+    }
+
+    @Test
+    void getAge() {
+        assertEquals(18, user.getAge());
     }
 }
