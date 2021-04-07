@@ -10,16 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
 
     User user;
+    User user2;
+    User user3;
 
     @BeforeEach
     void setUp() {
-        user = new User("Illia_admin", LocalDate.of(2003, 07, 30), 228541111);
+        user = new User("Illia_Admin", LocalDate.of(2003, 07, 30), 228541111);
+
     }
 
     @Test
     void setName() {
-        user.setName("Nick");
-        assertEquals("Nick", user.getName());
+        user.setName("Nicks_");
+        assertEquals("Nicks_", user.getName());
     }
 
     @Test
@@ -48,6 +51,6 @@ class UserTest {
 
     @Test
     void getAge() {
-        assertEquals(18, user.getAge());
+        assertEquals(17, user.getAge());
     }
 }

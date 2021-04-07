@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class VideoGame {
     private String name;
     private int ageRating;
-    private ArrayList<String> user;
+    private ArrayList<User> users;
 
-    public VideoGame(String name, int ageRating, ArrayList<String> user) {
+    public VideoGame(String name, int ageRating) {
         this.name = name;
         this.ageRating = ageRating;
-        this.user = user;
+        users = new ArrayList<>();
     }
 
     public String getName() {
@@ -18,7 +18,10 @@ public class VideoGame {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.matches("[A-Z][a-z]*"))
+            this.name = name;
+        else
+            throw new IllegalArgumentException("Game can not contain specific characters");
     }
 
     public int getAgeRating() {
@@ -26,14 +29,40 @@ public class VideoGame {
     }
 
     public void setAgeRating(int ageRating) {
-        this.ageRating = ageRating;
+        if (ageRating<=10 && ageRating>=0)
+            this.ageRating = ageRating;
+        else
+            throw new IllegalArgumentException("Rating must be 0 to 10");
     }
 
-    public ArrayList<String> getUser() {
-        return user;
+    public ArrayList<User> getUsers() {
+        return users;
     }
 
-    public void setUser(ArrayList<String> user) {
-        this.user = user;
+    public void setUser(ArrayList<User> users) {
+        this.users = users;
     }
+
+    public void addUser(User user) {
+        if (!userExist(user))
+            users.add(user);
+    }
+
+    public void removeUser(User user) {
+        if (userExist(user))
+            users.remove(user);
+    }
+
+    private boolean userExist(User user) {
+        boolean exist = false;
+
+        for(User usr: users) {
+            if(usr.equals(user)) {
+                exist = true;
+                break;
+            }
+        }
+        return  exist;
+    }
+
 }

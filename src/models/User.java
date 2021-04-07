@@ -22,7 +22,6 @@ public class User {
         return name;
     }
     /**
-     * check if our name include this rules where
      * “^” introduce that starting character of the string
      * “[A-Za-z]” makes sure that the starting character is in the lowercase or uppercase.
      * check to make sure that its word which include underscore
@@ -30,7 +29,7 @@ public class User {
      */
 
     public void setName(String name) {
-        if(name.matches("^[A-Za-z]\\w{5,15}$")){
+        if(name.matches("[A-Za-z]\\w{5,15}$")){
             this.name = name;
         }
         else
