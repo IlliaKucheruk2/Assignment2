@@ -10,13 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
 
     User user;
-    User user2;
-    User user3;
 
     @BeforeEach
     void setUp() {
         user = new User("Illia_Admin", LocalDate.of(2003, 07, 30), 228541111);
-
     }
 
     @Test

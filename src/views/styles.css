@@ -1,0 +1,8 @@
+.root{
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 18px;
+}
+
+.label{
+    -fx-font-size: 20px;
+}

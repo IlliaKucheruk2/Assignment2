@@ -8,8 +8,8 @@ public class VideoGame {
     private ArrayList<User> users;
 
     public VideoGame(String name, int ageRating) {
-        this.name = name;
-        this.ageRating = ageRating;
+        setName(name);
+        setAgeRating(ageRating);
         users = new ArrayList<>();
     }
 
@@ -63,6 +63,10 @@ public class VideoGame {
             }
         }
         return  exist;
+    }
+
+    public String toString(){
+        return String.format("%s (Rating: %d)",name, ageRating);
     }
 
 }

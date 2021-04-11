@@ -21,13 +21,13 @@ public class User {
     public String getName() {
         return name;
     }
+
     /**
      * “^” introduce that starting character of the string
      * “[A-Za-z]” makes sure that the starting character is in the lowercase or uppercase.
      * check to make sure that its word which include underscore
      * it should be from 5 to 15 characters
      */
-
     public void setName(String name) {
         if(name.matches("[A-Za-z]\\w{5,15}$")){
             this.name = name;
@@ -55,6 +55,10 @@ public class User {
         if(creditCard > 111111111)
             this.creditCard = creditCard;
         else
-            throw new IllegalArgumentException("Please enter your real credit card");
+            throw new IllegalArgumentException("Please enter your real credit card number");
+    }
+
+    public String toString(){
+        return String.format("%s Age: %d Card: %d",name, getAge(), creditCard);
     }
 }
