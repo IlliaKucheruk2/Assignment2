@@ -89,4 +89,50 @@ public class DBUtilities {
         return games;
     }
 
+    public static int insertUserIntoDB(User newUser) throws SQLException {
+        int userNum = -1;
+
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try{
+            //1. connect to the DB
+            conn = DriverManager.getConnection(connString,user,password);
+
+            //2. create our sql statement
+            statement = conn.prepareStatement("INSERT INTO usersA (nameUser, birthday, creditCard) VALUES " +
+                    "(?,?,?)", new String[]{"userNum"});
+
+            //3. bind the values to the datatypes
+            statement.setString(1, newUser.getName());
+            statement.setDate(2, Date.valueOf(newUser.getBirthday()));
+            statement.setInt(3, newUser.getCreditCard());
+
+
+            //4. execute the insert
+            statement.executeUpdate();
+
+            //5. get the student number returned
+            resultSet = statement.getGeneratedKeys();
+
+            //6. update the student number variable
+            while (resultSet.next())
+                userNum = resultSet.getInt(1);
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            if (conn != null)
+                conn.close();
+            if (statement != null)
+                statement.close();
+            if (resultSet != null)
+                resultSet.close();
+            return userNum;
+        }
+    }
+
 }
