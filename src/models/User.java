@@ -7,11 +7,13 @@ public class User {
     private String name;
     private LocalDate birthday;
     private int creditCard;
+    private int id;
 
-    public User(String name, LocalDate birthday, int creditCard) {
+    public User(String name, LocalDate birthday, int creditCard, int userId) {
         setName(name);
         setBirthday(birthday);
         setCreditCard(creditCard);
+        setId(userId);
     }
 
     public int getAge(){
@@ -20,6 +22,14 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    private void setId(int value) {
+        id = value;
     }
 
     /**
@@ -33,7 +43,7 @@ public class User {
             this.name = name;
         }
         else
-            throw new IllegalArgumentException("Your name should start with characters, contains lowercase or uppercase and should be written from 5-10 characters");
+            throw new IllegalArgumentException("Your name should start with characters, contains underscore, should be written from 5-15 characters");
 
     }
 
@@ -52,10 +62,10 @@ public class User {
     }
 
     public void setCreditCard(int creditCard) {
-        if(creditCard > 111111111)
+        if(creditCard > 100000000)
             this.creditCard = creditCard;
         else
-            throw new IllegalArgumentException("Please enter your real credit card number");
+            throw new IllegalArgumentException("Please enter your real credit card number with 9 digits");
     }
 
     public String toString(){

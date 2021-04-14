@@ -3,7 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,50 +13,57 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateGameViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateGameViewController">
    <children>
-      <VBox layoutX="-6.0" prefHeight="600.0" prefWidth="806.0">
+      <ImageView fitHeight="182.0" fitWidth="397.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/game.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </ImageView>
+      <GridPane layoutX="23.0" layoutY="190.0" vgap="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="378.0" minWidth="10.0" prefWidth="223.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="543.0" minWidth="10.0" prefWidth="543.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <ImageView fitHeight="182.0" fitWidth="397.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/game.png" />
-               </image>
-               <VBox.margin>
-                  <Insets left="5.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <rotationAxis>
-                  <Point3D />
-               </rotationAxis>
-            </ImageView>
-            <GridPane vgap="20.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="378.0" minWidth="10.0" prefWidth="223.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="543.0" minWidth="10.0" prefWidth="543.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Name" />
-                  <Label text="Rating" GridPane.rowIndex="1" />
-                  <TextField promptText="Enter Name" GridPane.columnIndex="1" />
-                  <TextField promptText="Enter Game Rating" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </GridPane>
+            <Label text="Name" />
+            <Label text="Rating" GridPane.rowIndex="1" />
+            <TextField fx:id="gameNameTextView" promptText="Enter Name" GridPane.columnIndex="1" />
+            <TextField fx:id="gameRatingTextView" promptText="Enter Game Rating (0-10)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets top="20.0" />
          </padding>
-      </VBox>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </GridPane>
+      <ListView fx:id="gameUserListView" layoutX="19.0" layoutY="338.0" prefHeight="196.0" prefWidth="279.0" />
+      <Button layoutX="642.0" layoutY="542.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="44.0" prefWidth="144.0" text="Back to Home" />
+      <ListView fx:id="allUserListView" layoutX="510.0" layoutY="338.0" prefHeight="196.0" prefWidth="279.0" />
+      <Button layoutX="360.0" layoutY="362.0" mnemonicParsing="false" onAction="#RemoveUsToGame" prefHeight="37.0" prefWidth="91.0" text="-&gt;" />
+      <Button layoutX="360.0" layoutY="446.0" mnemonicParsing="false" onAction="#AddUsToGame" prefHeight="37.0" prefWidth="91.0" text="&lt;-" />
+      <Button alignment="CENTER" layoutX="19.0" layoutY="542.0" mnemonicParsing="false" onAction="#submit" prefHeight="44.0" prefWidth="118.0" text="Submit">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <StackPane layoutX="173.0" layoutY="534.0" />
+      <Label layoutX="108.0" layoutY="308.0" text="Game User" />
+      <Label layoutX="611.0" layoutY="308.0" text="All User" />
+      <Label fx:id="msgLabel" contentDisplay="CENTER" layoutX="165.0" layoutY="550.0" prefHeight="21.0" prefWidth="443.0" text="Label" textAlignment="CENTER" />
    </children>
    <opaqueInsets>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

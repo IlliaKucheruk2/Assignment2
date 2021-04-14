@@ -13,9 +13,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateUserViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateUserViewController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="2.0" prefHeight="600.0" prefWidth="806.0" spacing="20.0">
          <children>
@@ -60,7 +61,12 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Label fx:id="msgLabel" contentDisplay="CENTER" text="Label" visible="false" wrapText="true" />
+            <Label fx:id="msgLabel" contentDisplay="CENTER" text="Label" wrapText="true" />
+            <StackPane alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="131.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#returnToHome" prefHeight="37.0" prefWidth="144.0" text="Back to Home" />
+               </children>
+            </StackPane>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

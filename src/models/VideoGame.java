@@ -6,10 +6,12 @@ public class VideoGame {
     private String name;
     private int ageRating;
     private ArrayList<User> users;
+    private int id;
 
-    public VideoGame(String name, int ageRating) {
+    public VideoGame(String name, int ageRating, int gameId) {
         setName(name);
         setAgeRating(ageRating);
+        setId(gameId);
         users = new ArrayList<>();
     }
 
@@ -17,11 +19,19 @@ public class VideoGame {
         return name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int value) {
+        id = value;
+    }
+
     public void setName(String name) {
-        if(name.matches("[A-Z][a-z]*"))
+        if(name.matches("[A-Z][a-z]{2,10}"))
             this.name = name;
         else
-            throw new IllegalArgumentException("Game can not contain specific characters");
+            throw new IllegalArgumentException("Name should contain from 2 to 10 characters");
     }
 
     public int getAgeRating() {

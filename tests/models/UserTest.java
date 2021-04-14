@@ -13,7 +13,7 @@ class UserTest {
 
     @BeforeEach
     void setUp() {
-        user = new User("Illia_Admin", LocalDate.of(2003, 07, 30), 228541111);
+        user = new User("Illia_Admin", LocalDate.of(2003, 07, 30), 228541111, 1);
     }
 
     @Test

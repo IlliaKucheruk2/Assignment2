@@ -13,7 +13,7 @@ class VideoGameTest {
 
     @BeforeEach
     void setUp() {
-        videoGame = new VideoGame("Valorant", 9);
+        videoGame = new VideoGame("Valorant", 9, 0);
     }
 
     @Test
