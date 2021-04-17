@@ -16,12 +16,11 @@ CREATE TABLE videoGames(
     ageRating INT(11)
 );
 
-CREATE TABLE `videoGames` (
-      `videoGamesNum` int(11) NOT NULL AUTO_INCREMENT,
-      `nameGame` varchar(20) DEFAULT NULL,
-      `ageRating` int(11) DEFAULT NULL,
-      PRIMARY KEY (`videoGamesNum`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+CREATE TABLE `GameUsers` (
+    `UserId` int(11) NOT NULL,
+    `GameId` int(11) NOT NULL,
+    PRIMARY KEY (`UserId`,`GameId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 
 
